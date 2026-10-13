@@ -265,6 +265,8 @@ def main() -> int:
     status = {"run_at": now_iso(), "sources": {}}
     added = 0
     for src in config["sources"]:
+        if src.get("enabled") is False:
+            continue
         limit = PER_RUN_PER_SOURCE if src["id"] in seen_sources else FIRST_RUN_PER_SOURCE
         try:
             found = COLLECTORS[src["type"]](src, limit)

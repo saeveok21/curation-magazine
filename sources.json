@@ -39,10 +39,12 @@
     },
     {
       "id": "100church",
-      "name": "100주년기념교회",
+      "name": "100church.org",
       "category": "goodlife",
       "type": "board_100church",
-      "list_url": "https://www.100church.org/home/board.php?board=cast&category=6&config=6"
+      "list_url": "https://www.100church.org/home/board.php?board=cast&category=6&config=6",
+      "enabled": false,
+      "note": "사이트의 자동접속 방지 절차로 수집 불가. 해당 교회 유튜브 채널로 대체 필요"
     },
     {
       "id": "dbr",
