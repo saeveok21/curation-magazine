@@ -169,7 +169,7 @@ def collect_dbr(src: dict, limit: int) -> list[dict]:
         }
         try:
             d = BeautifulSoup(get(url).text, "html.parser")
-            item["title"] = clean(meta(d, "og:title")) or title
+            item["title"] = re.sub(r"\s*[|\-]\s*DBR\s*$", "", clean(meta(d, "og:title")) or title)
             item["thumbnail"] = meta(d, "og:image")
             item["published"] = meta(d, "article:published_time", "og:regDate", "date")
             lead = meta(d, "og:description", "description")
@@ -197,7 +197,8 @@ def board_key(href: str) -> str | None:
 
 
 def collect_100church(src: dict, limit: int) -> list[dict]:
-    soup = BeautifulSoup(get(src["list_url"]).text, "html.parser")
+    html = get(src["list_url"]).text
+    soup = BeautifulSoup(html, "html.parser")
     seen, links = set(), []
     for a in soup.find_all("a", href=True):
         href = urljoin(src["list_url"], a["href"])
@@ -211,6 +212,10 @@ def collect_100church(src: dict, limit: int) -> list[dict]:
         links.append((href, key, title))
         if len(links) >= limit:
             break
+    if not links:  # 구조 파악용: 목록을 못 찾으면 원본 HTML을 남긴다
+        dbg = ROOT / "data" / "debug"
+        dbg.mkdir(parents=True, exist_ok=True)
+        (dbg / "100church.html").write_text(html, encoding="utf-8")
     out = []
     for url, key, title in links:
         item = {
