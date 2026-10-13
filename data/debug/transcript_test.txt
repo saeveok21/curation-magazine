@@ -1,0 +1,48 @@
+[fail] 4m-QIkWQxzw RequestBlocked: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=4m-QIkWQxzw! This is most likely caused by:
+
+YouTube is blocking requests from your IP. This usually is due to one of the following reasons:
+- You have done too many requests and your IP has been blocked by YouTube
+- You 
+[fail] Si7Aw2Q2pTM RequestBlocked: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=Si7Aw2Q2pTM! This is most likely caused by:
+
+YouTube is blocking requests from your IP. This usually is due to one of the following reasons:
+- You have done too many requests and your IP has been blocked by YouTube
+- You 
+[fail] hK2aGV8EuB8 RequestBlocked: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=hK2aGV8EuB8! This is most likely caused by:
+
+YouTube is blocking requests from your IP. This usually is due to one of the following reasons:
+- You have done too many requests and your IP has been blocked by YouTube
+- You 
+[fail] lh-Wap4oLs4 RequestBlocked: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=lh-Wap4oLs4! This is most likely caused by:
+
+YouTube is blocking requests from your IP. This usually is due to one of the following reasons:
+- You have done too many requests and your IP has been blocked by YouTube
+- You 
+[fail] Ur8AvF2U6OA RequestBlocked: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=Ur8AvF2U6OA! This is most likely caused by:
+
+YouTube is blocking requests from your IP. This usually is due to one of the following reasons:
+- You have done too many requests and your IP has been blocked by YouTube
+- You 
+[fail] lqVSzN8Hw6Q RequestBlocked: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=lqVSzN8Hw6Q! This is most likely caused by:
+
+YouTube is blocking requests from your IP. This usually is due to one of the following reasons:
+- You have done too many requests and your IP has been blocked by YouTube
+- You 
+[fail] U1KAtmXaEa4 RequestBlocked: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=U1KAtmXaEa4! This is most likely caused by:
+
+YouTube is blocking requests from your IP. This usually is due to one of the following reasons:
+- You have done too many requests and your IP has been blocked by YouTube
+- You 
+[fail] j5LmgDmmp5M RequestBlocked: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=j5LmgDmmp5M! This is most likely caused by:
+
+YouTube is blocking requests from your IP. This usually is due to one of the following reasons:
+- You have done too many requests and your IP has been blocked by YouTube
+- You 
