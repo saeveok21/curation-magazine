@@ -1,40 +1,35 @@
 {
- "run_at": "2026-10-13T08:55:28Z",
+ "run_at": "2026-10-13T16:55:53Z",
  "sources": {
   "lifechurch": {
    "ok": true,
    "found": 15,
-   "new": 10
+   "new": 0
   },
   "craiggroeschel": {
    "ok": true,
    "found": 15,
-   "new": 10
+   "new": 0
   },
   "playlist-azc1": {
    "ok": true,
    "found": 15,
-   "new": 10
+   "new": 0
   },
   "immch": {
    "ok": true,
    "found": 15,
-   "new": 10
-  },
-  "100church": {
-   "ok": true,
-   "found": 0,
    "new": 0
   },
   "dbr": {
    "ok": true,
    "found": 11,
-   "new": 6
+   "new": 0
   },
   "dawnfootball": {
    "ok": true,
    "found": 15,
-   "new": 10
+   "new": 3
   }
  }
 }
