@@ -1,0 +1,63 @@
+{
+  "categories": {
+    "goodlife": "굿라이프",
+    "business": "비즈니스",
+    "rest": "쉼과 일상"
+  },
+  "sources": [
+    {
+      "id": "lifechurch",
+      "name": "Life.Church",
+      "category": "goodlife",
+      "type": "youtube_channel",
+      "channel_id": "UCoDt562cJaageYU-LYKt4Pw",
+      "page": "https://www.youtube.com/@life.church/videos"
+    },
+    {
+      "id": "craiggroeschel",
+      "name": "Craig Groeschel",
+      "category": "goodlife",
+      "type": "youtube_channel",
+      "channel_id": "UCIIdiIO-Y20hRW9niR0CA8A",
+      "page": "https://www.youtube.com/@craiggroeschel/videos"
+    },
+    {
+      "id": "playlist-azc1",
+      "name": "지정 재생목록",
+      "category": "goodlife",
+      "type": "youtube_playlist",
+      "playlist_id": "PLazc1jsIJmOpZ6C9Rr1WM3KtPXkvY34vE",
+      "page": "https://www.youtube.com/playlist?list=PLazc1jsIJmOpZ6C9Rr1WM3KtPXkvY34vE"
+    },
+    {
+      "id": "immch",
+      "name": "임마누엘교회",
+      "category": "goodlife",
+      "type": "youtube_channel",
+      "channel_id": "UCsw_fTJRil_95o32wOnMF2w",
+      "page": "https://www.youtube.com/@immch/videos"
+    },
+    {
+      "id": "100church",
+      "name": "100주년기념교회",
+      "category": "goodlife",
+      "type": "board_100church",
+      "list_url": "https://www.100church.org/home/board.php?board=cast&category=6&config=6"
+    },
+    {
+      "id": "dbr",
+      "name": "DBR 동아비즈니스리뷰",
+      "category": "business",
+      "type": "dbr",
+      "list_url": "https://dbr.donga.com/article/index/total"
+    },
+    {
+      "id": "dawnfootball",
+      "name": "새벽의 축구 전문가",
+      "category": "rest",
+      "type": "youtube_channel",
+      "channel_id": "UCdh5nloZ9eo5YpZ2DRWwIew",
+      "page": "https://www.youtube.com/@새벽의축구전문가/videos"
+    }
+  ]
+}
