@@ -1,0 +1,11 @@
+name: 자막 테스트
+on: { workflow_dispatch: {} }
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install youtube-transcript-api
+      - run: python scripts/transcript_test.py 4m-QIkWQxzw Si7Aw2Q2pTM $(python -c "import json;d=json.load(open('data/items.json'));print(' '.join([i['youtube_id'] for i in d['items'] if i.get('youtube_id') and i['source'] in ('lifechurch','immch','playlist-azc1','craiggroeschel')][:6]))")
