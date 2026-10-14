@@ -1,10 +1,10 @@
 {
- "run_at": "2026-10-14T17:07:49Z",
+ "run_at": "2026-10-14T21:38:53Z",
  "sources": {
   "lifechurch": {
    "ok": true,
    "found": 15,
-   "new": 1
+   "new": 0
   },
   "craiggroeschel": {
    "ok": true,
@@ -19,7 +19,7 @@
   "immch": {
    "ok": true,
    "found": 15,
-   "new": 0
+   "new": 1
   },
   "dbr": {
    "ok": true,
@@ -29,7 +29,7 @@
   "dawnfootball": {
    "ok": true,
    "found": 15,
-   "new": 1
+   "new": 0
   },
   "thescoop": {
    "ok": true,
