@@ -1,7 +1,7 @@
 {
   "categories": {
     "goodlife": "굿라이프",
-    "business": "비즈니스",
+    "business": "사회/비즈니스",
     "rest": "쉼과 일상"
   },
   "sources": [
@@ -60,6 +60,56 @@
       "type": "youtube_channel",
       "channel_id": "UCdh5nloZ9eo5YpZ2DRWwIew",
       "page": "https://www.youtube.com/@새벽의축구전문가/videos"
+    },
+    {
+      "id": "thescoop",
+      "name": "더스쿠프",
+      "category": "business",
+      "type": "rss_news",
+      "rss_url": "https://www.thescoop.co.kr/rss/allArticle.xml",
+      "page": "https://www.thescoop.co.kr/news/articleList.html?view_type=sm",
+      "daily_cap": 12,
+      "per_run": 6
+    },
+    {
+      "id": "brunch-it",
+      "name": "브런치 · IT 트렌드",
+      "category": "business",
+      "type": "brunch_keyword",
+      "list_url": "https://brunch.co.kr/keyword/IT_%ED%8A%B8%EB%A0%8C%EB%93%9C?q=g",
+      "daily_cap": 4,
+      "per_run": 2,
+      "pick": "popular"
+    },
+    {
+      "id": "brunch-economy",
+      "name": "브런치 · 알수록 좋은 경제",
+      "category": "business",
+      "type": "brunch_keyword",
+      "list_url": "https://brunch.co.kr/keyword/%EC%95%8C%EC%88%98%EB%A1%9D_%EC%A2%8B%EC%9D%80_%EA%B2%BD%EC%A0%9C?q=g",
+      "daily_cap": 4,
+      "per_run": 2,
+      "pick": "popular"
+    },
+    {
+      "id": "brunch-travel",
+      "name": "브런치 · 지구한바퀴 세계여행",
+      "category": "rest",
+      "type": "brunch_keyword",
+      "list_url": "https://brunch.co.kr/keyword/%EC%A7%80%EA%B5%AC%ED%95%9C%EB%B0%94%ED%80%B4_%EC%84%B8%EA%B3%84%EC%97%AC%ED%96%89?q=g",
+      "daily_cap": 4,
+      "per_run": 2,
+      "pick": "popular"
+    },
+    {
+      "id": "brunch-books",
+      "name": "브런치 · 오늘은 이런 책",
+      "category": "rest",
+      "type": "brunch_keyword",
+      "list_url": "https://brunch.co.kr/keyword/%EC%98%A4%EB%8A%98%EC%9D%80_%EC%9D%B4%EB%9F%B0_%EC%B1%85?q=g",
+      "daily_cap": 4,
+      "per_run": 2,
+      "pick": "popular"
     }
   ]
 }

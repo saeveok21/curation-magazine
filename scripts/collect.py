@@ -11,7 +11,7 @@ import json
 import re
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urljoin, urlparse, parse_qs
 import xml.etree.ElementTree as ET
@@ -245,12 +245,105 @@ def collect_100church(src: dict, limit: int) -> list[dict]:
     return out
 
 
+# ---------------- 더스쿠프 (RSS) ----------------
+
+def collect_rss_news(src: dict, limit: int) -> list[dict]:
+    root = ET.fromstring(get(src["rss_url"]).content)
+    out = []
+    for it in root.iter("item"):
+        link = (it.findtext("link") or "").strip()
+        m = re.search(r"idxno=(\d+)", link)
+        key = m.group(1) if m else link
+        desc = BeautifulSoup(it.findtext("description") or "", "html.parser").get_text(" ", strip=True)
+        pub = (it.findtext("pubDate") or "").strip()
+        try:
+            pub = datetime.strptime(pub, "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone(timedelta(hours=9))).astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        except ValueError:
+            pass
+        out.append({
+            "id": make_id(src["id"], key),
+            "kind": "article",
+            "title": clean(it.findtext("title")),
+            "url": link.replace("http://", "https://", 1),
+            "published": pub,
+            "thumbnail": "",
+            "text": clean(desc)[:TEXT_LIMIT],
+            "text_basis": "기사 본문",
+            "_detail": link,
+        })
+        if len(out) >= limit:
+            break
+    return out
+
+
+def enrich_news(item: dict) -> None:
+    d = BeautifulSoup(get(item["_detail"]).text, "html.parser")
+    body = d.select_one("#article-view-content-div") or d.select_one("article.article-veiw-body") or d.select_one("article")
+    text = clean(body.get_text("\n", strip=True)) if body else main_text(d)
+    lead = meta(d, "og:description", "description")
+    item["thumbnail"] = meta(d, "og:image")
+    item["text"] = clean(f"{lead}\n\n{text}")[:TEXT_LIMIT]
+
+
+# ---------------- 브런치 키워드 ----------------
+
+_dec = json.JSONDecoder()
+
+
+def collect_brunch_keyword(src: dict, limit: int) -> list[dict]:
+    html = get(src["list_url"]).text
+    i = html.find('[{"article":')
+    if i < 0:
+        raise RuntimeError("브런치 글 목록을 찾지 못함")
+    arr, _ = _dec.raw_decode(html[i:])
+    out = []
+    for e in arr:
+        a = e.get("article") or {}
+        if a.get("status") != "publish" or not a.get("userId") or not a.get("no"):
+            continue
+        if a.get("membershipContent"):  # 유료 멤버십 글은 제외
+            continue
+        url = f"https://brunch.co.kr/@@{a['userId']}/{a['no']}"
+        ts = a.get("publishTimestamp") or e.get("timestamp") or 0
+        pub = datetime.fromtimestamp(ts / 1000, timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ") if ts else ""
+        title = clean(a.get("title"))
+        sub = clean(a.get("subTitle"))
+        out.append({
+            "id": make_id(src["id"], f"{a['userId']}/{a['no']}"),
+            "kind": "article",
+            "title": title,
+            "subtitle": sub,
+            "author": clean(a.get("userName")),
+            "url": url,
+            "published": pub,
+            "thumbnail": "",
+            "text": clean(a.get("contentSummary"))[:TEXT_LIMIT],
+            "text_basis": "브런치 글 본문",
+            "_detail": url,
+            "_score": (a.get("likeCount") or 0) * 5 + (a.get("commentCount") or 0) * 3 + (a.get("readSeconds") or 0) / 60,
+            "_short": len(a.get("contentSummary") or "") < 200,
+        })
+    return out
+
+
+def enrich_brunch(item: dict) -> None:
+    d = BeautifulSoup(get(item["_detail"]).text, "html.parser")
+    body = d.select_one("div.wrap_body") or d.select_one(".wrap_view_article")
+    if body:
+        text = clean(body.get_text("\n", strip=True))
+        if len(text) > len(item["text"]):
+            item["text"] = text[:TEXT_LIMIT]
+
+
 COLLECTORS = {
     "youtube_channel": collect_youtube,
     "youtube_playlist": collect_youtube,
     "dbr": collect_dbr,
     "board_100church": collect_100church,
+    "rss_news": collect_rss_news,
+    "brunch_keyword": collect_brunch_keyword,
 }
+ENRICHERS = {"rss_news": enrich_news, "brunch_keyword": enrich_brunch}
 
 
 def main() -> int:
@@ -269,11 +362,30 @@ def main() -> int:
             continue
         limit = PER_RUN_PER_SOURCE if src["id"] in seen_sources else FIRST_RUN_PER_SOURCE
         try:
-            found = COLLECTORS[src["type"]](src, limit)
+            found = COLLECTORS[src["type"]](src, 20 if src.get("daily_cap") else limit)
+            fresh = [it for it in found if it["id"] not in known and not it.get("_short")]
+            # 하루 상한: 최근 24시간 동안 이 소스에서 들어온 개수만큼 뺀다
+            cap = src.get("daily_cap")
+            if cap:
+                since = (datetime.now(timezone.utc) - timedelta(hours=24)).strftime("%Y-%m-%dT%H:%M:%SZ")
+                today = sum(1 for k in known.values() if k.get("source") == src["id"] and k.get("collected_at", "") >= since)
+                room = max(0, cap - today)
+                if src.get("pick") == "popular":
+                    fresh.sort(key=lambda x: x.get("_score", 0), reverse=True)
+                fresh = fresh[:min(room, src.get("per_run", room))]
+            else:
+                fresh = fresh[:limit]
+            enrich = ENRICHERS.get(src["type"])
             new = 0
-            for it in found:
-                if it["id"] in known:
-                    continue
+            for it in fresh:
+                if enrich:
+                    try:
+                        enrich(it)
+                    except Exception as e:
+                        it["detail_error"] = str(e)[:200]
+                    time.sleep(1)
+                for k in [k for k in it if k.startswith("_")]:
+                    it.pop(k)
                 it.update({
                     "source": src["id"],
                     "source_name": src["name"],
