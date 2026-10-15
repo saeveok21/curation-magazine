@@ -1,19 +1,17 @@
 {
- "run_at": "2026-10-15T04:01:14Z",
+ "run_at": "2026-10-15T04:04:16Z",
  "sources": {
   "lifechurch-messages": {
-   "ok": true,
-   "found": 0,
-   "new": 0
+   "ok": false,
+   "error": "404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCoDt562cJaageYU-LYKt4Pw"
   },
   "craiggroeschel": {
    "ok": false,
    "error": "404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCIIdiIO-Y20hRW9niR0CA8A"
   },
   "playlist-azc1": {
-   "ok": true,
-   "found": 0,
-   "new": 0
+   "ok": false,
+   "error": "재생목록 RSS 404, 대체할 channel_id 없음"
   },
   "immch": {
    "ok": false,
