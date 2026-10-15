@@ -89,42 +89,19 @@ def _walk(o, key):
             yield from _walk(v, key)
 
 
+def playlist_ids(playlist_id: str) -> list[str]:
+    """재생목록 페이지에 보이는 영상 ID (최신순 재생목록이면 앞쪽이 최신)."""
+    html = get(f"https://www.youtube.com/playlist?list={playlist_id}").text
+    return list(dict.fromkeys(re.findall(r'"videoId":"([\w-]{11})"', html)))
+
+
 def collect_youtube_playlist_page(src: dict, limit: int) -> list[dict]:
-    """RSS가 404일 때: 재생목록 페이지에서 영상 ID를 읽고, 각 영상 페이지에서 제목·설명·게시일을 읽는다."""
-    html = get(f"https://www.youtube.com/playlist?list={src['playlist_id']}").text
-    ids = list(dict.fromkeys(re.findall(r'"videoId":"([\w-]{11})"', html)))
-    # 재생목록 정렬 방향을 모르므로 앞뒤 양쪽에서 후보를 잡고 게시일로 다시 정렬한다
-    cands = list(dict.fromkeys(ids[:12] + ids[-12:]))
-    known_ids = src.get("_known", set())
-    items = []
-    for vid in cands:
-        iid = make_id(src["id"], vid)
-        if iid in known_ids:
-            continue
-        item = {
-            "id": iid, "kind": "video", "title": "",
-            "url": f"https://www.youtube.com/watch?v={vid}", "published": "",
-            "thumbnail": f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg",
-            "text": "", "text_basis": "영상 설명란", "youtube_id": vid,
-        }
-        try:
-            w = get(item["url"]).text
-            m = re.search(r'"videoDetails":\{"videoId":"[\w-]{11}","title":"((?:[^"\\]|\\.)*)"', w)
-            if m:
-                item["title"] = clean(json.loads('"' + m.group(1) + '"'))
-            m = re.search(r'"shortDescription":"((?:[^"\\]|\\.)*)"', w)
-            if m:
-                item["text"] = clean(json.loads('"' + m.group(1) + '"'))[:TEXT_LIMIT]
-            m = re.search(r'"(?:publishDate|uploadDate)":"([^"]+)"', w)
-            if m:
-                item["published"] = m.group(1)
-        except Exception as e:
-            item["detail_error"] = str(e)[:200]
-        if item["title"] and item["published"]:
-            items.append(item)
-        time.sleep(1)
-    items.sort(key=lambda x: x["published"], reverse=True)
-    return items[:limit]
+    """재생목록 RSS가 404일 때: 채널 RSS(설명란 포함) 중 재생목록에 든 영상만 고른다."""
+    if not src.get("channel_id"):
+        raise RuntimeError("재생목록 RSS 404, 대체할 channel_id 없음")
+    ids = set(playlist_ids(src["playlist_id"]))
+    chan = dict(src, type="youtube_channel")
+    return [it for it in collect_youtube(chan, 15) if it.get("youtube_id") in ids][:limit]
 
 
 def collect_youtube(src: dict, limit: int) -> list[dict]:

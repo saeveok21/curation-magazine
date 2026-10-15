@@ -1,8 +1,0 @@
-UfT0I0LUPr0 status=200 len=1454167 videoDetails=True shortDesc=False botcheck=False title=[' - YouTube']
-"videoDetails":{"playerOverlayVideoDetailsRenderer":{"title":{"simpleText":"당신의 걱정은 일시적인 것을 쫓는 것입니다."},"subtitle":{"runs":[{"text":"Life.Church"},{"text":"   "},{"text":"조회수 58,221회"},{"text":"   "},{"text":"3일 전"}]},"onTap":{"clickTrackingParams":"CAAQg2ciEwjbzdeNkruXAxUGGVcBHcmmHlLKAQSFgUG3","show
-dates ['"publishDate":{"simpleText":"2026. 10. 11."}']
-meta ['<meta name="title" content="">']
-IlULKVU7GUY status=200 len=1460430 videoDetails=True shortDesc=False botcheck=False title=[' - YouTube']
-"videoDetails":{"playerOverlayVideoDetailsRenderer":{"title":{"simpleText":"하나님의 뜻이 헷갈릴 때"},"subtitle":{"runs":[{"text":"Life.Church"},{"text":"   "},{"text":"조회수 122,439회"},{"text":"   "},{"text":"3개월 전"}]},"onTap":{"clickTrackingParams":"CAAQg2ciEwjMuYSOkruXAxWDAnsCHVx7JmLKAQSFgUG3","showEngagemen
-dates ['"publishDate":{"simpleText":"2026. 7. 5."}']
-meta ['<meta name="title" content="">']
