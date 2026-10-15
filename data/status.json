@@ -1,25 +1,21 @@
 {
- "run_at": "2026-10-14T21:38:53Z",
+ "run_at": "2026-10-15T03:57:38Z",
  "sources": {
-  "lifechurch": {
-   "ok": true,
-   "found": 15,
-   "new": 0
+  "lifechurch-messages": {
+   "ok": false,
+   "error": "404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?playlist_id=PLXvTERtQ_HV-Nm5gT6dVjKITGeyE4Vs5G"
   },
   "craiggroeschel": {
-   "ok": true,
-   "found": 15,
-   "new": 0
+   "ok": false,
+   "error": "404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCIIdiIO-Y20hRW9niR0CA8A"
   },
   "playlist-azc1": {
-   "ok": true,
-   "found": 15,
-   "new": 0
+   "ok": false,
+   "error": "404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?playlist_id=PLazc1jsIJmOpZ6C9Rr1WM3KtPXkvY34vE"
   },
   "immch": {
-   "ok": true,
-   "found": 15,
-   "new": 1
+   "ok": false,
+   "error": "404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCsw_fTJRil_95o32wOnMF2w"
   },
   "dbr": {
    "ok": true,
@@ -27,9 +23,8 @@
    "new": 0
   },
   "dawnfootball": {
-   "ok": true,
-   "found": 15,
-   "new": 0
+   "ok": false,
+   "error": "404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCdh5nloZ9eo5YpZ2DRWwIew"
   },
   "thescoop": {
    "ok": true,
@@ -38,12 +33,12 @@
   },
   "brunch-it": {
    "ok": true,
-   "found": 20,
+   "found": 19,
    "new": 0
   },
   "brunch-economy": {
    "ok": true,
-   "found": 20,
+   "found": 16,
    "new": 0
   },
   "brunch-travel": {
@@ -53,7 +48,7 @@
   },
   "brunch-books": {
    "ok": true,
-   "found": 20,
+   "found": 19,
    "new": 0
   }
  }
