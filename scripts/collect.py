@@ -90,41 +90,28 @@ def _walk(o, key):
 
 
 def collect_youtube_playlist_page(src: dict, limit: int) -> list[dict]:
-    """RSS가 404일 때: 재생목록 페이지와 각 영상 페이지에서 직접 읽는다."""
+    """RSS가 404일 때: 재생목록 페이지에서 영상 ID를 읽고, 각 영상 페이지에서 제목·설명·게시일을 읽는다."""
     html = get(f"https://www.youtube.com/playlist?list={src['playlist_id']}").text
-    data = _yt_json(html, "ytInitialData")
-    vids = []
-    for r in _walk(data, "playlistVideoRenderer"):
-        vid = r.get("videoId")
-        title = "".join(x.get("text", "") for x in (r.get("title", {}).get("runs") or []))
-        if vid and vid not in [v for v, _ in vids]:
-            vids.append((vid, title))
-    # 재생목록이 오래된 순일 수 있으니 영상 페이지의 게시일로 다시 정렬한다
-    out = []
-    for vid, title in vids[-40:] if src.get("oldest_first") else vids[:40]:
-        out.append({"vid": vid, "title": title})
-    items = []
-    for v in out:
-        vid = v["vid"]
-        item = {
-            "id": make_id(src["id"], vid),
-            "kind": "video",
-            "title": clean(v["title"]),
-            "url": f"https://www.youtube.com/watch?v={vid}",
-            "published": "",
-            "thumbnail": f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg",
-            "text": "",
-            "text_basis": "영상 설명란",
-            "youtube_id": vid,
-        }
-        items.append(item)
+    ids = list(dict.fromkeys(re.findall(r'"videoId":"([\w-]{11})"', html)))
+    # 재생목록 정렬 방향을 모르므로 앞뒤 양쪽에서 후보를 잡고 게시일로 다시 정렬한다
+    cands = list(dict.fromkeys(ids[:12] + ids[-12:]))
     known_ids = src.get("_known", set())
-    fetched = 0
-    for item in items:
-        if item["id"] in known_ids or fetched >= limit + 5:
+    items = []
+    for vid in cands:
+        iid = make_id(src["id"], vid)
+        if iid in known_ids:
             continue
+        item = {
+            "id": iid, "kind": "video", "title": "",
+            "url": f"https://www.youtube.com/watch?v={vid}", "published": "",
+            "thumbnail": f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg",
+            "text": "", "text_basis": "영상 설명란", "youtube_id": vid,
+        }
         try:
             w = get(item["url"]).text
+            m = re.search(r'"videoDetails":\{"videoId":"[\w-]{11}","title":"((?:[^"\\]|\\.)*)"', w)
+            if m:
+                item["title"] = clean(json.loads('"' + m.group(1) + '"'))
             m = re.search(r'"shortDescription":"((?:[^"\\]|\\.)*)"', w)
             if m:
                 item["text"] = clean(json.loads('"' + m.group(1) + '"'))[:TEXT_LIMIT]
@@ -133,9 +120,9 @@ def collect_youtube_playlist_page(src: dict, limit: int) -> list[dict]:
                 item["published"] = m.group(1)
         except Exception as e:
             item["detail_error"] = str(e)[:200]
-        fetched += 1
+        if item["title"] and item["published"]:
+            items.append(item)
         time.sleep(1)
-    items = [i for i in items if i["published"] or i["id"] in known_ids]
     items.sort(key=lambda x: x["published"], reverse=True)
     return items[:limit]
 
