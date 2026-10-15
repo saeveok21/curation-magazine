@@ -69,12 +69,88 @@ def make_id(source_id: str, key: str) -> str:
 
 # ---------------- 유튜브 ----------------
 
+def _yt_json(html: str, marker: str):
+    i = html.find(marker)
+    if i < 0:
+        return None
+    j = html.find("{", i)
+    obj, _ = json.JSONDecoder().raw_decode(html[j:])
+    return obj
+
+
+def _walk(o, key):
+    if isinstance(o, dict):
+        if key in o:
+            yield o[key]
+        for v in o.values():
+            yield from _walk(v, key)
+    elif isinstance(o, list):
+        for v in o:
+            yield from _walk(v, key)
+
+
+def collect_youtube_playlist_page(src: dict, limit: int) -> list[dict]:
+    """RSS가 404일 때: 재생목록 페이지와 각 영상 페이지에서 직접 읽는다."""
+    html = get(f"https://www.youtube.com/playlist?list={src['playlist_id']}").text
+    data = _yt_json(html, "ytInitialData")
+    vids = []
+    for r in _walk(data, "playlistVideoRenderer"):
+        vid = r.get("videoId")
+        title = "".join(x.get("text", "") for x in (r.get("title", {}).get("runs") or []))
+        if vid and vid not in [v for v, _ in vids]:
+            vids.append((vid, title))
+    # 재생목록이 오래된 순일 수 있으니 영상 페이지의 게시일로 다시 정렬한다
+    out = []
+    for vid, title in vids[-40:] if src.get("oldest_first") else vids[:40]:
+        out.append({"vid": vid, "title": title})
+    items = []
+    for v in out:
+        vid = v["vid"]
+        item = {
+            "id": make_id(src["id"], vid),
+            "kind": "video",
+            "title": clean(v["title"]),
+            "url": f"https://www.youtube.com/watch?v={vid}",
+            "published": "",
+            "thumbnail": f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg",
+            "text": "",
+            "text_basis": "영상 설명란",
+            "youtube_id": vid,
+        }
+        items.append(item)
+    known_ids = src.get("_known", set())
+    fetched = 0
+    for item in items:
+        if item["id"] in known_ids or fetched >= limit + 5:
+            continue
+        try:
+            w = get(item["url"]).text
+            m = re.search(r'"shortDescription":"((?:[^"\\]|\\.)*)"', w)
+            if m:
+                item["text"] = clean(json.loads('"' + m.group(1) + '"'))[:TEXT_LIMIT]
+            m = re.search(r'"(?:publishDate|uploadDate)":"([^"]+)"', w)
+            if m:
+                item["published"] = m.group(1)
+        except Exception as e:
+            item["detail_error"] = str(e)[:200]
+        fetched += 1
+        time.sleep(1)
+    items = [i for i in items if i["published"] or i["id"] in known_ids]
+    items.sort(key=lambda x: x["published"], reverse=True)
+    return items[:limit]
+
+
 def collect_youtube(src: dict, limit: int) -> list[dict]:
     if src["type"] == "youtube_channel":
         url = f"https://www.youtube.com/feeds/videos.xml?channel_id={src['channel_id']}"
     else:
         url = f"https://www.youtube.com/feeds/videos.xml?playlist_id={src['playlist_id']}"
-    root = ET.fromstring(get(url).content)
+    try:
+        root = ET.fromstring(get(url).content)
+    except requests.HTTPError:
+        if src["type"] == "youtube_playlist":
+            return collect_youtube_playlist_page(src, limit)
+        raise
     out = []
     for entry in root.findall("atom:entry", NS)[:limit]:
         vid = entry.findtext("yt:videoId", default="", namespaces=NS)
@@ -361,6 +437,7 @@ def main() -> int:
         if src.get("enabled") is False:
             continue
         limit = PER_RUN_PER_SOURCE if src["id"] in seen_sources else FIRST_RUN_PER_SOURCE
+        src["_known"] = {k for k, v in known.items() if v.get("source") == src["id"]}
         try:
             found = COLLECTORS[src["type"]](src, 20 if src.get("daily_cap") else limit)
             fresh = [it for it in found if it["id"] not in known and not it.get("_short")]
