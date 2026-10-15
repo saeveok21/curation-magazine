@@ -6,12 +6,12 @@
   },
   "sources": [
     {
-      "id": "lifechurch",
-      "name": "Life.Church",
+      "id": "lifechurch-messages",
+      "name": "Life.Church 메시지",
       "category": "goodlife",
-      "type": "youtube_channel",
-      "channel_id": "UCoDt562cJaageYU-LYKt4Pw",
-      "page": "https://www.youtube.com/@life.church/videos"
+      "type": "youtube_playlist",
+      "playlist_id": "PLXvTERtQ_HV-Nm5gT6dVjKITGeyE4Vs5G",
+      "page": "https://www.youtube.com/playlist?list=PLXvTERtQ_HV-Nm5gT6dVjKITGeyE4Vs5G"
     },
     {
       "id": "craiggroeschel",
