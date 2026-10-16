@@ -1,15 +1,15 @@
 {
- "run_at": "2026-10-16T21:04:21Z",
+ "run_at": "2026-10-16T23:33:58Z",
  "sources": {
   "lifechurch-messages": {
    "ok": true,
-   "found": 15,
+   "found": 1,
    "new": 0
   },
   "craiggroeschel": {
    "ok": true,
    "found": 15,
-   "new": 1
+   "new": 0
   },
   "playlist-azc1": {
    "ok": true,
@@ -27,34 +27,33 @@
    "new": 0
   },
   "dawnfootball": {
-   "ok": true,
-   "found": 15,
-   "new": 0
+   "ok": false,
+   "error": "404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCdh5nloZ9eo5YpZ2DRWwIew"
   },
   "thescoop": {
    "ok": true,
    "found": 20,
-   "new": 0
+   "new": 2
   },
   "brunch-it": {
    "ok": true,
    "found": 20,
-   "new": 2
+   "new": 0
   },
   "brunch-economy": {
    "ok": true,
-   "found": 17,
-   "new": 2
+   "found": 18,
+   "new": 0
   },
   "brunch-travel": {
    "ok": true,
    "found": 20,
-   "new": 2
+   "new": 0
   },
   "brunch-books": {
    "ok": true,
    "found": 19,
-   "new": 2
+   "new": 0
   }
  }
 }
