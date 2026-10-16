@@ -1,35 +1,40 @@
 {
- "run_at": "2026-10-16T04:27:48Z",
+ "run_at": "2026-10-16T11:18:37Z",
  "sources": {
   "lifechurch-messages": {
-   "ok": false,
-   "error": "404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCoDt562cJaageYU-LYKt4Pw"
+   "ok": true,
+   "found": 15,
+   "new": 0
   },
   "craiggroeschel": {
-   "ok": false,
-   "error": "404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCIIdiIO-Y20hRW9niR0CA8A"
+   "ok": true,
+   "found": 15,
+   "new": 0
   },
   "playlist-azc1": {
-   "ok": false,
-   "error": "재생목록 RSS 404, 대체할 channel_id 없음"
+   "ok": true,
+   "found": 15,
+   "new": 0
   },
   "immch": {
-   "ok": false,
-   "error": "404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCsw_fTJRil_95o32wOnMF2w"
+   "ok": true,
+   "found": 15,
+   "new": 1
   },
   "dbr": {
    "ok": true,
    "found": 11,
-   "new": 0
+   "new": 1
   },
   "dawnfootball": {
-   "ok": false,
-   "error": "404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCdh5nloZ9eo5YpZ2DRWwIew"
+   "ok": true,
+   "found": 15,
+   "new": 2
   },
   "thescoop": {
    "ok": true,
    "found": 20,
-   "new": 2
+   "new": 1
   },
   "brunch-it": {
    "ok": true,
@@ -48,7 +53,7 @@
   },
   "brunch-books": {
    "ok": true,
-   "found": 19,
+   "found": 20,
    "new": 0
   }
  }
