@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-17T15:30:33Z",
+ "run_at": "2026-10-17T20:33:58Z",
  "sources": {
   "lifechurch-messages": {
    "ok": true,
@@ -32,29 +32,28 @@
    "new": 1
   },
   "thescoop": {
-   "ok": true,
-   "found": 20,
-   "new": 0
+   "ok": false,
+   "error": "403 Client Error: Forbidden for url: https://www.thescoop.co.kr/rss/allArticle.xml"
   },
   "brunch-it": {
    "ok": true,
    "found": 18,
-   "new": 0
+   "new": 2
   },
   "brunch-economy": {
    "ok": true,
    "found": 19,
-   "new": 0
+   "new": 2
   },
   "brunch-travel": {
    "ok": true,
    "found": 20,
-   "new": 0
+   "new": 2
   },
   "brunch-books": {
    "ok": true,
    "found": 20,
-   "new": 0
+   "new": 2
   }
  }
 }
