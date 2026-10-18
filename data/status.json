@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-18T20:38:34Z",
+ "run_at": "2026-10-18T23:09:00Z",
  "sources": {
   "lifechurch-messages": {
    "ok": true,
@@ -19,7 +19,7 @@
   "immch": {
    "ok": true,
    "found": 15,
-   "new": 2
+   "new": 0
   },
   "dbr": {
    "ok": true,
@@ -29,7 +29,7 @@
   "dawnfootball": {
    "ok": true,
    "found": 15,
-   "new": 1
+   "new": 0
   },
   "thescoop": {
    "ok": true,
