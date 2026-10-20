@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-19T20:34:44Z",
+ "run_at": "2026-10-20T00:18:44Z",
  "sources": {
   "lifechurch-messages": {
    "ok": true,
@@ -7,29 +7,24 @@
    "new": 0
   },
   "craiggroeschel": {
-   "ok": true,
-   "found": 15,
-   "new": 0
+   "ok": false,
+   "error": "404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCIIdiIO-Y20hRW9niR0CA8A"
   },
   "playlist-azc1": {
-   "ok": true,
-   "found": 15,
-   "new": 0
+   "ok": false,
+   "error": "재생목록 RSS 404, 대체할 channel_id 없음"
   },
   "immch": {
-   "ok": true,
-   "found": 15,
-   "new": 1
+   "ok": false,
+   "error": "500 Server Error: Internal Server Error for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCsw_fTJRil_95o32wOnMF2w"
   },
   "dbr": {
-   "ok": true,
-   "found": 11,
-   "new": 0
+   "ok": false,
+   "error": "502 Server Error: Bad Gateway for url: https://dbr.donga.com/article/index/total"
   },
   "dawnfootball": {
-   "ok": true,
-   "found": 15,
-   "new": 1
+   "ok": false,
+   "error": "404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCdh5nloZ9eo5YpZ2DRWwIew"
   },
   "thescoop": {
    "ok": true,
@@ -39,22 +34,22 @@
   "brunch-it": {
    "ok": true,
    "found": 19,
-   "new": 0
+   "new": 2
   },
   "brunch-economy": {
    "ok": true,
-   "found": 20,
-   "new": 0
+   "found": 19,
+   "new": 2
   },
   "brunch-travel": {
    "ok": true,
    "found": 20,
-   "new": 0
+   "new": 2
   },
   "brunch-books": {
    "ok": true,
    "found": 20,
-   "new": 0
+   "new": 2
   }
  }
 }
