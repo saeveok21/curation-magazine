@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-20T14:17:22Z",
+ "run_at": "2026-10-20T19:13:30Z",
  "sources": {
   "lifechurch-messages": {
    "ok": true,
@@ -34,11 +34,11 @@
   "thescoop": {
    "ok": true,
    "found": 20,
-   "new": 1
+   "new": 0
   },
   "brunch-it": {
    "ok": true,
-   "found": 19,
+   "found": 20,
    "new": 0
   },
   "brunch-economy": {
