@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-23T17:03:31Z",
+ "run_at": "2026-10-23T21:22:08Z",
  "sources": {
   "lifechurch-messages": {
    "ok": true,
@@ -9,7 +9,7 @@
   "craiggroeschel": {
    "ok": true,
    "found": 15,
-   "new": 0
+   "new": 1
   },
   "playlist-azc1": {
    "ok": true,
@@ -29,12 +29,12 @@
   "dawnfootball": {
    "ok": true,
    "found": 15,
-   "new": 1
+   "new": 0
   },
   "thescoop": {
    "ok": true,
    "found": 20,
-   "new": 0
+   "new": 1
   },
   "brunch-it": {
    "ok": true,
