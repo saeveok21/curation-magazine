@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-24T10:54:52Z",
+ "run_at": "2026-10-24T15:54:17Z",
  "sources": {
   "lifechurch-messages": {
    "ok": true,
@@ -24,17 +24,16 @@
   "dbr": {
    "ok": true,
    "found": 11,
-   "new": 2
+   "new": 0
   },
   "dawnfootball": {
    "ok": true,
    "found": 15,
-   "new": 2
+   "new": 1
   },
   "thescoop": {
-   "ok": true,
-   "found": 20,
-   "new": 2
+   "ok": false,
+   "error": "403 Client Error: Forbidden for url: https://www.thescoop.co.kr/rss/allArticle.xml"
   },
   "brunch-it": {
    "ok": true,
