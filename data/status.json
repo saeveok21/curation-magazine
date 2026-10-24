@@ -1,35 +1,40 @@
 {
- "run_at": "2026-10-24T04:32:08Z",
+ "run_at": "2026-10-24T10:54:52Z",
  "sources": {
   "lifechurch-messages": {
-   "ok": false,
-   "error": "404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCoDt562cJaageYU-LYKt4Pw"
+   "ok": true,
+   "found": 15,
+   "new": 0
   },
   "craiggroeschel": {
-   "ok": false,
-   "error": "404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCIIdiIO-Y20hRW9niR0CA8A"
+   "ok": true,
+   "found": 15,
+   "new": 0
   },
   "playlist-azc1": {
-   "ok": false,
-   "error": "재생목록 RSS 404, 대체할 channel_id 없음"
+   "ok": true,
+   "found": 15,
+   "new": 0
   },
   "immch": {
-   "ok": false,
-   "error": "404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCsw_fTJRil_95o32wOnMF2w"
+   "ok": true,
+   "found": 15,
+   "new": 0
   },
   "dbr": {
    "ok": true,
    "found": 11,
-   "new": 0
+   "new": 2
   },
   "dawnfootball": {
-   "ok": false,
-   "error": "500 Server Error: Internal Server Error for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCdh5nloZ9eo5YpZ2DRWwIew"
+   "ok": true,
+   "found": 15,
+   "new": 2
   },
   "thescoop": {
    "ok": true,
    "found": 20,
-   "new": 3
+   "new": 2
   },
   "brunch-it": {
    "ok": true,
