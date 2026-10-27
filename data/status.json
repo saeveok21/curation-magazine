@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-27T15:22:42Z",
+ "run_at": "2026-10-27T22:10:38Z",
  "sources": {
   "lifechurch-messages": {
    "ok": true,
@@ -19,7 +19,7 @@
   "immch": {
    "ok": true,
    "found": 15,
-   "new": 0
+   "new": 1
   },
   "dbr": {
    "ok": true,
@@ -29,7 +29,7 @@
   "dawnfootball": {
    "ok": true,
    "found": 15,
-   "new": 2
+   "new": 0
   },
   "thescoop": {
    "ok": true,
@@ -53,7 +53,7 @@
   },
   "brunch-books": {
    "ok": true,
-   "found": 18,
+   "found": 20,
    "new": 0
   }
  }
