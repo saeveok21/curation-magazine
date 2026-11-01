@@ -1,5 +1,5 @@
 {
- "run_at": "2026-11-01T00:06:29Z",
+ "run_at": "2026-11-01T05:57:45Z",
  "sources": {
   "lifechurch-messages": {
    "ok": false,
@@ -7,7 +7,7 @@
   },
   "craiggroeschel": {
    "ok": false,
-   "error": "500 Server Error: Internal Server Error for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCIIdiIO-Y20hRW9niR0CA8A"
+   "error": "404 Client Error: Not Found for url: https://www.youtube.com/feeds/videos.xml?channel_id=UCIIdiIO-Y20hRW9niR0CA8A"
   },
   "playlist-azc1": {
    "ok": false,
@@ -29,27 +29,27 @@
   "thescoop": {
    "ok": true,
    "found": 20,
-   "new": 1
+   "new": 3
   },
   "brunch-it": {
    "ok": true,
    "found": 19,
-   "new": 2
+   "new": 0
   },
   "brunch-economy": {
    "ok": true,
    "found": 17,
-   "new": 2
+   "new": 0
   },
   "brunch-travel": {
    "ok": true,
    "found": 20,
-   "new": 2
+   "new": 0
   },
   "brunch-books": {
    "ok": true,
    "found": 20,
-   "new": 2
+   "new": 0
   }
  }
 }
