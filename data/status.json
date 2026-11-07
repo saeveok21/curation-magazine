@@ -1,5 +1,5 @@
 {
- "run_at": "2026-11-06T23:05:42Z",
+ "run_at": "2026-11-07T05:54:20Z",
  "sources": {
   "lifechurch-messages": {
    "ok": false,
@@ -33,23 +33,23 @@
   },
   "brunch-it": {
    "ok": true,
-   "found": 19,
-   "new": 2
+   "found": 18,
+   "new": 0
   },
   "brunch-economy": {
    "ok": true,
    "found": 20,
-   "new": 2
+   "new": 0
   },
   "brunch-travel": {
    "ok": true,
    "found": 20,
-   "new": 2
+   "new": 0
   },
   "brunch-books": {
    "ok": true,
    "found": 18,
-   "new": 2
+   "new": 0
   }
  }
 }
