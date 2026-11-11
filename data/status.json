@@ -1,10 +1,10 @@
 {
- "run_at": "2026-11-11T14:14:35Z",
+ "run_at": "2026-11-11T21:55:03Z",
  "sources": {
   "lifechurch-messages": {
    "ok": true,
    "found": 15,
-   "new": 0
+   "new": 1
   },
   "craiggroeschel": {
    "ok": true,
@@ -14,22 +14,22 @@
   "playlist-azc1": {
    "ok": true,
    "found": 15,
-   "new": 0
+   "new": 1
   },
   "immch": {
    "ok": true,
    "found": 15,
-   "new": 0
+   "new": 1
   },
   "dbr": {
    "ok": true,
    "found": 6,
-   "new": 3
+   "new": 0
   },
   "dawnfootball": {
    "ok": true,
    "found": 15,
-   "new": 4
+   "new": 0
   },
   "thescoop": {
    "ok": true,
@@ -39,22 +39,22 @@
   "brunch-it": {
    "ok": true,
    "found": 20,
-   "new": 0
+   "new": 2
   },
   "brunch-economy": {
    "ok": true,
    "found": 18,
-   "new": 0
+   "new": 2
   },
   "brunch-travel": {
    "ok": true,
    "found": 20,
-   "new": 0
+   "new": 2
   },
   "brunch-books": {
    "ok": true,
    "found": 20,
-   "new": 0
+   "new": 2
   }
  }
 }
