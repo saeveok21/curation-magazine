@@ -1,5 +1,5 @@
 {
- "run_at": "2026-11-21T02:11:13Z",
+ "run_at": "2026-11-21T10:56:29Z",
  "sources": {
   "lifechurch-messages": {
    "ok": true,
@@ -9,7 +9,7 @@
   "craiggroeschel": {
    "ok": true,
    "found": 15,
-   "new": 1
+   "new": 2
   },
   "playlist-azc1": {
    "ok": true,
@@ -29,7 +29,7 @@
   "dawnfootball": {
    "ok": true,
    "found": 15,
-   "new": 0
+   "new": 2
   },
   "thescoop": {
    "ok": true,
@@ -38,7 +38,7 @@
   },
   "brunch-it": {
    "ok": true,
-   "found": 19,
+   "found": 18,
    "new": 2
   },
   "brunch-economy": {
@@ -53,7 +53,7 @@
   },
   "brunch-books": {
    "ok": true,
-   "found": 19,
+   "found": 20,
    "new": 2
   }
  }
