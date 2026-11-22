@@ -1,10 +1,10 @@
 {
- "run_at": "2026-11-22T11:15:23Z",
+ "run_at": "2026-11-22T19:33:07Z",
  "sources": {
   "lifechurch-messages": {
    "ok": true,
    "found": 15,
-   "new": 0
+   "new": 2
   },
   "craiggroeschel": {
    "ok": true,
@@ -29,21 +29,21 @@
   "dawnfootball": {
    "ok": true,
    "found": 15,
-   "new": 1
+   "new": 2
   },
   "thescoop": {
    "ok": true,
    "found": 20,
-   "new": 4
+   "new": 0
   },
   "brunch-it": {
    "ok": true,
-   "found": 20,
+   "found": 19,
    "new": 2
   },
   "brunch-economy": {
    "ok": true,
-   "found": 19,
+   "found": 18,
    "new": 2
   },
   "brunch-travel": {
