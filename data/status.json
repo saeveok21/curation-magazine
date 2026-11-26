@@ -1,5 +1,5 @@
 {
- "run_at": "2026-11-26T03:32:24Z",
+ "run_at": "2026-11-26T16:49:51Z",
  "sources": {
   "lifechurch-messages": {
    "ok": true,
@@ -19,7 +19,7 @@
   "immch": {
    "ok": true,
    "found": 15,
-   "new": 1
+   "new": 0
   },
   "dbr": {
    "ok": true,
@@ -29,7 +29,7 @@
   "dawnfootball": {
    "ok": true,
    "found": 15,
-   "new": 2
+   "new": 4
   },
   "thescoop": {
    "ok": true,
@@ -37,20 +37,24 @@
    "new": 3
   },
   "brunch-it": {
-   "ok": false,
-   "error": "HTTPSConnectionPool(host='brunch.co.kr', port=443): Max retries exceeded with url: /keyword/IT_%ED%8A%B8%EB%A0%8C%EB%93%9C?q=g (Caused by ConnectTimeoutError(<HTTPSConnection(host='brunch.co.kr', port=443) at 0x7562cb6f83b0>, 'Connection to brunch.co.kr timed out. (connect timeout=25)'))"
+   "ok": true,
+   "found": 20,
+   "new": 2
   },
   "brunch-economy": {
-   "ok": false,
-   "error": "HTTPSConnectionPool(host='brunch.co.kr', port=443): Max retries exceeded with url: /keyword/%EC%95%8C%EC%88%98%EB%A1%9D_%EC%A2%8B%EC%9D%80_%EA%B2%BD%EC%A0%9C?q=g (Caused by ConnectTimeoutError(<HTTPSConnection(host='brunch.co.kr', port=443) at 0x7562cb6f87a0>, 'Connection to brunch.co.kr timed out. "
+   "ok": true,
+   "found": 19,
+   "new": 2
   },
   "brunch-travel": {
-   "ok": false,
-   "error": "HTTPSConnectionPool(host='brunch.co.kr', port=443): Max retries exceeded with url: /keyword/%EC%A7%80%EA%B5%AC%ED%95%9C%EB%B0%94%ED%80%B4_%EC%84%B8%EA%B3%84%EC%97%AC%ED%96%89?q=g (Caused by ConnectTimeoutError(<HTTPSConnection(host='brunch.co.kr', port=443) at 0x7562cb6f88f0>, 'Connection to brunch."
+   "ok": true,
+   "found": 20,
+   "new": 2
   },
   "brunch-books": {
-   "ok": false,
-   "error": "HTTPSConnectionPool(host='brunch.co.kr', port=443): Max retries exceeded with url: /keyword/%EC%98%A4%EB%8A%98%EC%9D%80_%EC%9D%B4%EB%9F%B0_%EC%B1%85?q=g (Caused by ConnectTimeoutError(<HTTPSConnection(host='brunch.co.kr', port=443) at 0x7562cb6f8710>, 'Connection to brunch.co.kr timed out. (connect "
+   "ok": true,
+   "found": 20,
+   "new": 2
   }
  }
 }
